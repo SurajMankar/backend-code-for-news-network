@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Signup</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Animate.css for Animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="login-signup.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <%- include('partials/header.ejs') %>
+
+    <!-- Form Container -->
+    <div class="form-container animate__animated animate__fadeIn">
+        <!-- Login Form -->
+        <div id="loginForm" class="animate__animated animate__zoomIn">
+            <h2>Login</h2>
+            <form method="post" action="/login">
+                <div class="mb-3">
+                    <label for="loginEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="loginEmail" placeholder="Enter your email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="loginPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="loginPassword" placeholder="Enter your password" name="password">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+            <div class="toggle-btn">
+                <p>Don't have an account? <span class="text-primary" onclick="showSignup()">Sign Up</span></p>
+            </div>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signupForm" class="animate__animated animate__zoomIn" style="display: none;">
+            <h2>Sign Up</h2>
+            <form method="post" action="/new_user">
+                <div class="mb-3">
+                    <label for="signupName" class="form-label">Full Name</label>
+                    <input type="text" class="form-control" id="signupName" name="fname" placeholder="Enter your name">
+                </div>
+                <div class="mb-3">
+                    <label for="signupEmail" class="form-label">Email address</label>
+                    <input type="email" class="form-control" id="signupEmail" name="email" placeholder="Enter your email">
+                </div>
+                <div class="mb-3">
+                    <label for="signupPassword" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="signupPassword" name="password" placeholder="Enter your password">
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-success">Sign Up</button>
+                </div>
+            </form>
+            <div class="toggle-btn">
+                <p>Already have an account? <span class="text-primary" onclick="showLogin()">Login</span></p>
+            </div>
+        </div>
+    </div>
+
+    
+   <%- include('partials/footer.ejs') %>
+
+    <!-- Bootstrap JS and Animate.css -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.js"></script>
+
+    <script src="login-signup.js"></script>
+</body>
+</html>
